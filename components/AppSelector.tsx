@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Card, CardContent, Typography, Box, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { apps } from '@/data/apps';
 import { useStore } from '@/store/useStore';
