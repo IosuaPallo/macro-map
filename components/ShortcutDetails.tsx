@@ -111,7 +111,7 @@ export function ShortcutDetails({ shortcut, platform }: ShortcutDetailsProps) {
           <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1 }}>
             {keys.map((key, idx) => (
               <Chip
-                key={idx}
+                key={`${shortcut.id}-${idx}`}
                 label={key}
                 sx={{
                   fontFamily: 'monospace',
