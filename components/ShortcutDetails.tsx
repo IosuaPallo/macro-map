@@ -6,7 +6,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { Shortcut, Platform } from '@/data/types';
 import { useState } from 'react';
 
-const MotionCard = motion(Card);
+const MotionCard = motion.create(Card);
 
 interface ShortcutDetailsProps {
   shortcut: Shortcut | null;
