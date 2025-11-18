@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import {
   Container,
-  Grid2,
+  Grid,
   Box,
   AppBar,
   Toolbar,
