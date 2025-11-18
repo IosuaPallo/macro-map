@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { apps } from '@/data/apps';
 import { useStore } from '@/store/useStore';
 
-const MotionCard = motion(Card);
+const MotionCard = motion.create(Card);
 
 export function AppSelector() {
   const setSelectedApp = useStore((state) => state.setSelectedApp);
