@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { KeyCap } from './KeyCap';
 import { Shortcut } from '@/data/types';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 interface KeyboardLayoutProps {
   shortcuts: Shortcut[];
