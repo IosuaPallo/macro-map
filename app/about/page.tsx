@@ -10,7 +10,6 @@ import {
   Button,
   AppBar,
   Toolbar,
-  Grid,
 } from '@mui/material';
 import { motion, easeOut } from 'framer-motion';
 import Link from 'next/link';
