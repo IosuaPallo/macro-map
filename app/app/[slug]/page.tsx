@@ -124,12 +124,16 @@ export default function AppDetailPage() {
                 {sidebarOpen ? <CloseIcon /> : <MenuIcon />}
               </Button>
             )}
-            <Link href="/">
+            <Link href="/" style={{ textDecoration: 'none' }}>
               <Button
                 startIcon={<HomeIcon />}
                 sx={{
                   textTransform: 'none',
                   fontSize: '0.875rem',
+                  color: 'inherit',
+                  '&:hover': {
+                    backgroundColor: 'action.hover',
+                  },
                 }}
               >
                 Home
@@ -250,21 +254,13 @@ export default function AppDetailPage() {
             <Container maxWidth="xl" disableGutters>
               <Box
                 sx={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
+                  display: 'grid',
+                  gridTemplateColumns: isTablet ? '1fr' : '1fr 1fr 1fr',
                   gap: 4,
-                  '@media (max-width: 1279.95px)': {
-                    flexDirection: 'column',
-                  },
                 }}
               >
                 {/* Keyboard Section */}
-                <Box
-                  sx={{
-                    flex: isTablet ? '1 1 100%' : '1 1 calc(66.666% - 16px)',
-                    minWidth: '0',
-                  }}
-                >
+                <Box>
                   <MotionBox
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -286,43 +282,37 @@ export default function AppDetailPage() {
                       onKeyClick={setSelectedKey}
                     />
                   </MotionBox>
-
-                  {/* Shortcuts List - Mobile/Tablet */}
-                  {(isMobile || isTablet) && (
-                    <MotionBox
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                      sx={{ mt: 4 }}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          fontWeight: 700,
-                          marginBottom: 2,
-                        }}
-                      >
-                        All Shortcuts
-                      </Typography>
-                      <ShortcutList
-                        shortcuts={filteredShortcuts}
-                        platform={platform}
-                        onSelectShortcut={(shortcut) =>
-                          setSelectedKey(shortcut.keys[platform][0])
-                        }
-                      />
-                    </MotionBox>
-                  )}
                 </Box>
 
-                {/* Details Panel - Desktop */}
-                {!isTablet && (
-                  <Box
-                    sx={{
-                      flex: '1 1 calc(33.333% - 16px)',
-                      minWidth: '0',
-                    }}
+                {/* All Shortcuts Section */}
+                <Box>
+                  <MotionBox
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
                   >
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 700,
+                        marginBottom: 2,
+                      }}
+                    >
+                      All Shortcuts
+                    </Typography>
+                    <ShortcutList
+                      shortcuts={filteredShortcuts}
+                      platform={platform}
+                      onSelectShortcut={(shortcut) =>
+                        setSelectedKey(shortcut.keys[platform][0])
+                      }
+                    />
+                  </MotionBox>
+                </Box>
+
+                {/* Details Panel */}
+                {!isTablet && (
+                  <Box>
                     <MotionBox
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
