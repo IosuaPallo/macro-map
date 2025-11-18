@@ -4,7 +4,7 @@ import { Box, Typography, List, ListItem, Chip, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Shortcut, Platform } from '@/data/types';
 
-const MotionListItem = motion(ListItem);
+const MotionListItem = motion.create(ListItem);
 
 interface ShortcutListProps {
   shortcuts: Shortcut[];
