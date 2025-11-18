@@ -14,6 +14,7 @@ import {
   useMediaQuery,
   useTheme,
   Divider,
+  Grid2,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
@@ -37,7 +38,7 @@ import { getApp } from '@/data/apps';
 import { useStore } from '@/store/useStore';
 import { Shortcut, AppSlug } from '@/data/types';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function AppDetailPage() {
   const params = useParams();
@@ -249,9 +250,9 @@ export default function AppDetailPage() {
             transition={{ duration: 0.5 }}
           >
             <Container maxWidth="xl" disableGutters>
-              <Grid container spacing={4}>
+              <Grid container spacing={4} component="div">
                 {/* Keyboard Section */}
-                <Grid item xs={12} lg={isTablet ? 12 : 8}>
+                <Grid size={{ xs: 12, lg: isTablet ? 12 : 8 }}>
                   <MotionBox
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -304,7 +305,7 @@ export default function AppDetailPage() {
 
                 {/* Details Panel - Desktop */}
                 {!isTablet && (
-                  <Grid item xs={12} lg={4}>
+                  <Grid size={{ xs: 12, lg: 4 }}>
                     <MotionBox
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -333,7 +334,7 @@ export default function AppDetailPage() {
 
                 {/* Details Panel - Tablet/Mobile */}
                 {(isMobile || isTablet) && selectedShortcut && (
-                  <Grid item xs={12}>
+                  <Grid size={{ xs: 12 }}>
                     <MotionBox
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
