@@ -132,7 +132,7 @@ export function ShortcutList({
               {(platform === 'mac' ? shortcut.keys.mac : shortcut.keys.windows).map(
                 (key, idx) => (
                   <Chip
-                    key={idx}
+                    key={`${shortcut.id}-${idx}`}
                     label={key}
                     size="small"
                     variant="outlined"
