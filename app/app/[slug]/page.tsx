@@ -282,7 +282,7 @@ export default function AppDetailPage() {
 
                     <KeyboardLayout
                       shortcuts={filteredShortcuts}
-                      selectedKey={selectedKey}
+                      selectedKey={selectedKey ?? "undefined"}
                       onKeyClick={setSelectedKey}
                     />
                   </MotionBox>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Card, CardContent, Typography, Box } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { apps } from '@/data/apps';
 import { useStore } from '@/store/useStore';
 
@@ -22,7 +22,7 @@ export function AppSelector() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
