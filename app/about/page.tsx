@@ -20,8 +20,8 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useStore } from '@/store/useStore';
 
-const MotionBox = motion(Box);
-const MotionCard = motion(Card);
+const MotionBox = motion.create(Box);
+const MotionCard = motion.create(Card);
 
 export default function AboutPage() {
   const isDarkMode = useStore((state) => state.isDarkMode);
