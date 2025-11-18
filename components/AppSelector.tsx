@@ -38,7 +38,7 @@ export function AppSelector() {
       animate="visible"
       className="w-full"
     >
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
         {apps.map((app) => (
           <Grid item xs={12} sm={6} md={4} key={app.id}>
             <Link
