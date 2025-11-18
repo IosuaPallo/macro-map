@@ -249,9 +249,9 @@ export default function AppDetailPage() {
             transition={{ duration: 0.5 }}
           >
             <Container maxWidth="xl" disableGutters>
-              <Grid2 container spacing={4}>
+              <Grid container spacing={4}>
                 {/* Keyboard Section */}
-                <Grid2 size={{ xs: 12, lg: isTablet ? 12 : 8 }}>
+                <Grid item xs={12} lg={isTablet ? 12 : 8}>
                   <MotionBox
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -300,11 +300,11 @@ export default function AppDetailPage() {
                       />
                     </MotionBox>
                   )}
-                </Grid2>
+                </Grid>
 
                 {/* Details Panel - Desktop */}
                 {!isTablet && (
-                  <Grid2 size={{ xs: 12, lg: 4 }}>
+                  <Grid item xs={12} lg={4}>
                     <MotionBox
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -328,12 +328,12 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid2>
+                  </Grid>
                 )}
 
                 {/* Details Panel - Tablet/Mobile */}
                 {(isMobile || isTablet) && selectedShortcut && (
-                  <Grid2 size={{ xs: 12 }}>
+                  <Grid item xs={12}>
                     <MotionBox
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -353,9 +353,9 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid2>
+                  </Grid>
                 )}
-              </Grid2>
+              </Grid>
             </Container>
           </MotionBox>
         </Box>
