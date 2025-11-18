@@ -1,12 +1,12 @@
 'use client';
 
-import { Container, Typography, Button, Box, Stack } from '@mui/material';
+import { Container, Typography, Button, Box, Stack, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { AppSelector } from '@/components/AppSelector';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box);
 
 export default function Home() {
   const containerVariants = {
@@ -86,7 +86,7 @@ export default function Home() {
             direction={{ xs: 'column', sm: 'row' }}
             spacing={2}
             justifyContent="center"
-            sx={{ marginBottom: 2 }}
+            sx={{ marginBottom: 2, width: '100%' }}
           >
             <Link href="#apps" style={{ textDecoration: 'none' }}>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
