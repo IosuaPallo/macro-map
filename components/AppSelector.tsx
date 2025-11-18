@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Card, CardContent, Typography, Box, Grid } from '@mui/material';
+import { Card, CardContent, Typography, Box } from '@mui/material';
 import { motion } from 'framer-motion';
 import { apps } from '@/data/apps';
 import { useStore } from '@/store/useStore';
@@ -38,9 +38,30 @@ export function AppSelector() {
       animate="visible"
       className="w-full"
     >
-      <Grid container spacing={3} justifyContent="center">
+      <Box
+        sx={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 3,
+          justifyContent: 'center',
+          '& > *': {
+            flex: '1 1 calc(33.333% - 20px)',
+            minWidth: '0',
+          },
+          '@media (max-width: 899.95px)': {
+            '& > *': {
+              flex: '1 1 calc(50% - 12px)',
+            },
+          },
+          '@media (max-width: 599.95px)': {
+            '& > *': {
+              flex: '1 1 100%',
+            },
+          },
+        }}
+      >
         {apps.map((app) => (
-          <Grid item xs={12} sm={6} md={4} key={app.id}>
+          <Box key={app.id}>
             <Link
               href={`/app/${app.slug}`}
               onClick={() => setSelectedApp(app.slug as any)}
@@ -105,9 +126,9 @@ export function AppSelector() {
                 </CardContent>
               </MotionCard>
             </Link>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </motion.div>
   );
 }

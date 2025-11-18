@@ -10,7 +10,6 @@ import {
   Button,
   AppBar,
   Toolbar,
-  Grid,
 } from '@mui/material';
 import { motion, easeOut } from 'framer-motion';
 import Link from 'next/link';
@@ -416,47 +415,58 @@ export default function AboutPage() {
                 Key Notation Reference
               </Typography>
 
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Stack spacing={1}>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      <strong>Mac:</strong>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Cmd</strong> – Command key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Option</strong> – Alt/Option key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Ctrl</strong> – Control key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Shift</strong> – Shift key
-                    </Typography>
-                  </Stack>
-                </Grid>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 2,
+                  '& > *': {
+                    flex: '1 1 calc(50% - 8px)',
+                    minWidth: '0',
+                  },
+                  '@media (max-width: 599.95px)': {
+                    '& > *': {
+                      flex: '1 1 100%',
+                    },
+                  },
+                }}
+              >
+                <Stack spacing={1}>
+                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                    <strong>Mac:</strong>
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Cmd</strong> – Command key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Option</strong> – Alt/Option key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Ctrl</strong> – Control key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Shift</strong> – Shift key
+                  </Typography>
+                </Stack>
 
-                <Grid item xs={12} sm={6}>
-                  <Stack spacing={1}>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      <strong>Windows:</strong>
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Ctrl</strong> – Control key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Alt</strong> – Alt key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Shift</strong> – Shift key
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      <strong>Win</strong> – Windows key
-                    </Typography>
-                  </Stack>
-                </Grid>
-              </Grid>
+                <Stack spacing={1}>
+                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                    <strong>Windows:</strong>
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Ctrl</strong> – Control key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Alt</strong> – Alt key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Shift</strong> – Shift key
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    <strong>Win</strong> – Windows key
+                  </Typography>
+                </Stack>
+              </Box>
             </CardContent>
           </MotionCard>
 
