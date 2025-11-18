@@ -167,9 +167,9 @@ export function KeyboardLayout({
             justifyContent: rowIndex === KEYBOARD_LAYOUT.length - 1 ? 'center' : 'flex-start',
           }}
         >
-          {row.map((keyData) => (
+          {row.map((keyData, keyIndex) => (
             <KeyCap
-              key={keyData.key}
+              key={`${rowIndex}-${keyIndex}`}
               label={keyData.label}
               keyValue={keyData.key}
               width={keyData.width}
