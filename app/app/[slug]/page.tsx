@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import {
   Container,
-  Grid,
+  Grid2,
   Box,
   AppBar,
   Toolbar,
@@ -14,7 +14,6 @@ import {
   useMediaQuery,
   useTheme,
   Divider,
-  Grid2,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useParams, useRouter } from 'next/navigation';
@@ -250,9 +249,9 @@ export default function AppDetailPage() {
             transition={{ duration: 0.5 }}
           >
             <Container maxWidth="xl" disableGutters>
-              <Grid container spacing={4} component="div">
+              <Grid2 container spacing={4}>
                 {/* Keyboard Section */}
-                <Grid size={{ xs: 12, lg: isTablet ? 12 : 8 }}>
+                <Grid2 size={{ xs: 12, lg: isTablet ? 12 : 8 }}>
                   <MotionBox
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -301,11 +300,11 @@ export default function AppDetailPage() {
                       />
                     </MotionBox>
                   )}
-                </Grid>
+                </Grid2>
 
                 {/* Details Panel - Desktop */}
                 {!isTablet && (
-                  <Grid size={{ xs: 12, lg: 4 }}>
+                  <Grid2 size={{ xs: 12, lg: 4 }}>
                     <MotionBox
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -329,12 +328,12 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid>
+                  </Grid2>
                 )}
 
                 {/* Details Panel - Tablet/Mobile */}
                 {(isMobile || isTablet) && selectedShortcut && (
-                  <Grid size={{ xs: 12 }}>
+                  <Grid2 size={{ xs: 12 }}>
                     <MotionBox
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -354,9 +353,9 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid>
+                  </Grid2>
                 )}
-              </Grid>
+              </Grid2>
             </Container>
           </MotionBox>
         </Box>
