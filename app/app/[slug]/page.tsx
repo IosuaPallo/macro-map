@@ -248,9 +248,23 @@ export default function AppDetailPage() {
             transition={{ duration: 0.5 }}
           >
             <Container maxWidth="xl" disableGutters>
-              <Grid container spacing={4}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: 4,
+                  '@media (max-width: 1279.95px)': {
+                    flexDirection: 'column',
+                  },
+                }}
+              >
                 {/* Keyboard Section */}
-                <Grid item xs={12} lg={isTablet ? 12 : 8}>
+                <Box
+                  sx={{
+                    flex: isTablet ? '1 1 100%' : '1 1 calc(66.666% - 16px)',
+                    minWidth: '0',
+                  }}
+                >
                   <MotionBox
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -299,11 +313,16 @@ export default function AppDetailPage() {
                       />
                     </MotionBox>
                   )}
-                </Grid>
+                </Box>
 
                 {/* Details Panel - Desktop */}
                 {!isTablet && (
-                  <Grid item xs={12} lg={4}>
+                  <Box
+                    sx={{
+                      flex: '1 1 calc(33.333% - 16px)',
+                      minWidth: '0',
+                    }}
+                  >
                     <MotionBox
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -327,12 +346,17 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid>
+                  </Box>
                 )}
 
                 {/* Details Panel - Tablet/Mobile */}
                 {(isMobile || isTablet) && selectedShortcut && (
-                  <Grid item xs={12}>
+                  <Box
+                    sx={{
+                      flex: '1 1 100%',
+                      minWidth: '0',
+                    }}
+                  >
                     <MotionBox
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -352,9 +376,9 @@ export default function AppDetailPage() {
                         platform={platform}
                       />
                     </MotionBox>
-                  </Grid>
+                  </Box>
                 )}
-              </Grid>
+              </Box>
             </Container>
           </MotionBox>
         </Box>
