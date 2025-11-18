@@ -12,7 +12,7 @@ import {
   Toolbar,
   Grid,
 } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 import Link from 'next/link';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
