@@ -255,62 +255,71 @@ export default function AppDetailPage() {
               <Box
                 sx={{
                   display: 'grid',
-                  gridTemplateColumns: isTablet ? '1fr' : '1fr 1fr 1fr',
+                  gridTemplateColumns: isTablet ? '1fr' : '2fr 1fr',
                   gap: 4,
                 }}
               >
-                {/* Keyboard Section */}
-                <Box>
-                  <MotionBox
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        fontWeight: 700,
-                        marginBottom: 2,
-                      }}
+                {/* Left Column: Keyboard and All Shortcuts */}
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 4,
+                  }}
+                >
+                  {/* Keyboard Section */}
+                  <Box>
+                    <MotionBox
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2 }}
                     >
-                      Keyboard Shortcuts
-                    </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 700,
+                          marginBottom: 2,
+                        }}
+                      >
+                        Keyboard Shortcuts
+                      </Typography>
 
-                    <KeyboardLayout
-                      shortcuts={filteredShortcuts}
-                      selectedKey={selectedKey ?? "undefined"}
-                      onKeyClick={setSelectedKey}
-                    />
-                  </MotionBox>
+                      <KeyboardLayout
+                        shortcuts={filteredShortcuts}
+                        selectedKey={selectedKey ?? "undefined"}
+                        onKeyClick={setSelectedKey}
+                      />
+                    </MotionBox>
+                  </Box>
+
+                  {/* All Shortcuts Section */}
+                  <Box>
+                    <MotionBox
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 700,
+                          marginBottom: 2,
+                        }}
+                      >
+                        All Shortcuts
+                      </Typography>
+                      <ShortcutList
+                        shortcuts={filteredShortcuts}
+                        platform={platform}
+                        onSelectShortcut={(shortcut) =>
+                          setSelectedKey(shortcut.keys[platform][0])
+                        }
+                      />
+                    </MotionBox>
+                  </Box>
                 </Box>
 
-                {/* All Shortcuts Section */}
-                <Box>
-                  <MotionBox
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        fontWeight: 700,
-                        marginBottom: 2,
-                      }}
-                    >
-                      All Shortcuts
-                    </Typography>
-                    <ShortcutList
-                      shortcuts={filteredShortcuts}
-                      platform={platform}
-                      onSelectShortcut={(shortcut) =>
-                        setSelectedKey(shortcut.keys[platform][0])
-                      }
-                    />
-                  </MotionBox>
-                </Box>
-
-                {/* Details Panel */}
+                {/* Right Column: Details Panel */}
                 {!isTablet && (
                   <Box>
                     <MotionBox
